@@ -1,0 +1,265 @@
+body{
+    margin: 0;
+    height: 100%;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+}
+
+.header{
+    padding: 15px 0;
+    background: #ffffff;
+}
+
+.header-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 0px solid #82a70c;
+}
+
+.logo-content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 80%;
+    border: 0px solid #82a70c;
+}
+
+.logo-content-img{
+    border: 0px solid #42515f;
+}
+
+.emp-text{
+    font: normal normal bold 20px/25px Montserrat;
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: 0px;
+    color: #82a70c;
+    text-transform: capitalize;
+}
+
+.emp-payroll{
+    color: #42515f;
+}
+
+.form-content{
+    min-height: calc(100% - 80px);
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form{
+    width: 65%;
+    padding: 44px 60px;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #b5b3ac;
+    border: 1px solid #f5f5f5;
+    border-radius: 8px;
+    opacity: 1;
+}
+
+.form-head{
+    font: normal normal bold 24px/37px Roboto;
+    letter-spacing: 0px;
+    color: #42515f;
+    text-transform: capitalize;
+    opacity: 1;
+    padding-bottom: 20px;
+}
+
+.row-content{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    align-items: center;
+    border: 0px solid #82a70c;
+}
+
+.row-content > .checkboxDiv {
+    display: flex;
+    flex-direction: row;
+}
+
+.label{
+    min-width: 140px;
+}
+
+label{
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+.text{
+    font-size: 16px;
+    color: #42515f;
+    opacity: 1;
+    font-family: Roboto;
+}
+
+.input{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.profile-radio-content{
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-radio-content > label{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.profile{
+    width: 40px;
+    border-radius: 50%;
+    margin-left: 12px;
+}
+
+select{
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    resize: vertical;
+    font: normal normal normal 16px Roboto;
+    letter-spacing: 0px;
+    color: #42515f;
+    background-color: transparent;
+}
+
+.buttonParent{
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.button{
+    font-size: 20px;
+    font-family: Roboto;
+    letter-spacing: 0px;
+    color: #42515f;
+    opacity: 1;
+    background: transparent;
+    border: 1px solid #707070;
+    font-weight: 400;
+    min-width: 140px;
+    padding: 7px 7px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #42515f;
+    color: #ffffff;
+}
+
+button:disabled{
+    background-color: #ffffff;
+    color: #cccccc;
+}
+
+.submitButton{
+    border: 1px solid #707070;
+    background-color: #f5f5f5;
+    margin-right: 30px;
+}
+
+.cancelButton{
+    text-decoration: none;
+    text-align: center;
+}
+
+.cancelButton:hover{
+    background-color: #42515f;
+    color: #ffffff;
+}
+
+.input-error{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+error-output{
+    font-size: 12px;
+    font-style: italic;
+    color: red;
+    height: 10px;
+    padding-top: 3px;
+}
+
+@media only screen and (max-width: 960px){
+    .cancelButton{
+        margin-left: 0px;
+    }
+    .form{
+        width: 85%;
+        padding: 44px 20px;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .form{
+        margin-top: 10px;
+    }
+    .row{
+        flex-direction: column;
+    }
+    .row-content{
+        display: block;
+    }
+    .checkboxDiv > div{
+        display: flex;
+        flex-direction: column;
+    }
+    .profile-radio-content{
+        flex-flow: wrap;
+    }
+    .submit-reset{
+        width: 100%;
+        display: flex;
+        flex-grow: 1;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    .submitButton{
+        margin: 0;
+    }
+    .buttonParent{
+        flex-direction: column-reverse;
+        align-items: flex-start;
+    }
+}
+
+@media only screen and (max-width: 390px){
+    select{
+        display: flex;
+        margin-bottom: 5px;
+    }
+    .buttonParent{
+        align-items: center;
+    }
+    .submit-reset{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .submitButton{
+        margin-bottom: 10px;
+    }
+}
+
+*{
+    box-sizing: border-box;
+}

@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+}
+
+.column{
+  display: flex;
+  flex-direction: row;
+}
+
+.center{
+  justify-content: center;
+  align-items: center;
+}
+
+.justifyCenter{
+  justify-content: center;
+}
+
+.alignCenter{
+  align-items: center;
+}
+
+.spaceBetween{
+  justify-content: space-between;
+}
+
+.fitWidth{
+  width: fit-content;
+}
