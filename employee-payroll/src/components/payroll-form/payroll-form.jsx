@@ -7,6 +7,7 @@ import './payroll-form.scss';
 import logo from "../../assets/images/logo.png";
 import { useParams, Link, withRouter } from 'react-router-dom';
 import App from '../../App';
+import employeeService from '../../services/employee-services';
 
 const PayrollForm = (props) => {
     let initialValue = {
@@ -55,6 +56,7 @@ const PayrollForm = (props) => {
             checkArray.push(name);
         setForm({ ...formValue, departmentValue: checkArray });   
     }
+    
     const getChecked = (name) => {
         return formValue.departmentValue && formValue.departmentValue.includes(name);
     }
@@ -96,6 +98,28 @@ const PayrollForm = (props) => {
 
     const save = async (event) => {
         event.preventDefault();
+        console.log("save");
+
+        if(await validData()){
+            console.log('error', formValue);
+            return;
+        }
+        let object = {
+            name : formValue.name,
+            departmentValue: formValue.departmentValue,
+            gender: formValue.gender,
+            salary: formValue.salary,
+            startDate: `${formValue.day} ${formValue.month} ${formValue.year}`,
+            notes: formValue.notes,
+            id: '',
+            profileUrl: formValue.profileUrl
+        }
+        employeeService.addEmployee(object).then(data => {
+            console.log("data added");
+            props.history.push('')
+        }).catch(err => {
+            console.log("error while Add");
+        })
     }
 
     const reset = () => {
@@ -116,26 +140,27 @@ const PayrollForm = (props) => {
                 <div className="form-head">Employee Payroll Form</div>
                 <div className="row-content row">
                     <label className="label text" htmlFor="name">Name</label>
-                    <input className="input" type="text" id="name" name="name" value={formValue.name} onChange={changeValue} placeholder="Your name..." autocomplete="off" required/>
+                    <input className="input" type="text" id="name" name="name" value={formValue.name} onChange={changeValue} placeholder="Your name..."/>
                 </div>
                 <div className="error">{formValue.error.name}</div>
                 <div className="row-content">
                     <label className="label text" htmlFor="profile">Profile Image</label>
                     <div className="profile-radio-content">
                         <label>
-                            <input type="radio" checked={formValue.profileUrl == '../../assets/profile-images/Ellipse -3.png'} name="profileUrl" value="../assets/profile-images/Ellipse -3.png" onChange={changeValue} id="profile1"/>
+                            <input type="radio" checked={formValue.profileUrl === '../../assets/profile-images/Ellipse -3.png'} name="profileUrl" 
+                            value="../../assets/profile-images/Ellipse -3.png" onChange={changeValue} id="profile1"/>
                             <img className="profile" src={profile1} alt=""/>
                         </label>
                         <label>
-                            <input type="radio" checked={formValue.profileUrl == '../../assets/profile-images/Ellipse 1.png'} name="profileUrl" value="../assets/profile-images/Ellipse 1.png" onChange={changeValue} id="profile2" />
+                            <input type="radio" checked={formValue.profileUrl === '../../assets/profile-images/Ellipse 1.png'} name="profileUrl" value="../../assets/profile-images/Ellipse 1.png" onChange={changeValue} id="profile2" />
                             <img className="profile" src={profile2} alt=""/>
                         </label>
                         <label>
-                            <input type="radio" checked={formValue.profileUrl == '../../assets/profile-images/Ellipse -8.png'}  name="profileUrl" value="../assets/profile-images/Ellipse -8.png" onChange={changeValue} id="profile3"/>
+                            <input type="radio" checked={formValue.profileUrl === '../../assets/profile-images/Ellipse -8.png'}  name="profileUrl" value="../../assets/profile-images/Ellipse -8.png" onChange={changeValue} id="profile3"/>
                             <img className="profile" src={profile3} alt=""/>
                         </label>
                         <label>
-                            <input type="radio" checked={formValue.profileUrl == '../../assets/profile-images/Ellipse -7.png'} name="profileUrl" value="../assets/profile-images/Ellipse -7.png" onChange={changeValue} id="profile4"/>
+                            <input type="radio" checked={formValue.profileUrl === '../../assets/profile-images/Ellipse -7.png'} name="profileUrl" value="../../assets/profile-images/Ellipse -7.png" onChange={changeValue} id="profile4"/>
                             <img className="profile" src={profile4} alt=""/>
                         </label>
                     </div>
@@ -154,13 +179,13 @@ const PayrollForm = (props) => {
                 <div className="row-content">
                     <label className="label text" htmlFor="department">Department</label>
                     <div>
-                        {formValue.allDepartment.map(item => {
+                        {formValue.allDepartment.map((item, i) => (
                             <span key={item}>
                                 <input className="checkBox" type="checkbox" onChange={() => onCheckChange(item)} name={item} 
                                        defaultChecked={() => getChecked(item)} value={item} />
                                 <label className="text" htmlFor={item}>{item}</label>
                             </span>
-                        })}
+                        ))}
                     </div>
                 </div>
                 <div className="error">{formValue.error.department}</div>
@@ -171,9 +196,7 @@ const PayrollForm = (props) => {
                 <div className="error">{formValue.error.salary}</div>   
                 <div className="row-content">
                     <label className="label text" htmlFor="startDate">Start Date</label>
-                    
-                        <div id = "startDate">
-                            <select onChange={changeValue} id="day" name="day">
+                            <select className="mr-5" onChange={changeValue} id="day" name="day">
                                 <option>Day</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -207,7 +230,7 @@ const PayrollForm = (props) => {
                                 <option value="30">30</option>
                                 <option value="31">31</option>
                             </select>
-                            <select onChange={changeValue} id="month" name="month">
+                            <select className="mr-5" onChange={changeValue} id="month" name="month">
                                 <option>Month</option>
                                 <option value="1">January</option>
                                 <option value="2">February</option>
@@ -231,7 +254,6 @@ const PayrollForm = (props) => {
                                 <option value="2016">2016</option>
                                 <option value="2015">2015</option>
                             </select>        
-                        </div>
                 </div>
                 <div className="error">{formValue.error.startDate}</div>  
                 <div className="row-content">

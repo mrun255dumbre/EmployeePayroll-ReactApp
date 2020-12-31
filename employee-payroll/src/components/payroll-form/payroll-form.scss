@@ -135,6 +135,7 @@ select{
     letter-spacing: 0px;
     color: #42515f;
     background-color: transparent;
+    width: 30%;
 }
 
 .buttonParent{
@@ -188,6 +189,10 @@ button:disabled{
     display: flex;
     flex-direction: column;
     width: 100%;
+}
+
+.mr-5{
+     margin-right: 20px;
 }
 
 error-output{
@@ -246,6 +251,7 @@ error-output{
     select{
         display: flex;
         margin-bottom: 5px;
+        width: 100%;
     }
     .buttonParent{
         align-items: center;
