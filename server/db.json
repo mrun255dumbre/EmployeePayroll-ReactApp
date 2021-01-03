@@ -1,57 +1,19 @@
 {
-    "employees": [
-      {
-        "id": 1,
-        "_name": "Pankaj",
-        "_gender": "Male",
-        "_department": [
-          "HR",
-          "Sales"
-        ],
-        "_salary": "10000",
-        "_startDate": "29 Oct 2019",
-        "_notes": "Hello",
-        "_profilePic": "../assets/profile-images/Ellipse -3.png"
-      },
-      {
-        "id": 2,
-        "_name": "David",
-        "_gender": "Male",
-        "_department": [
-          "HR",
-          "Engineer"
-        ],
-        "_salary": "5000",
-        "_startDate": "10 Nov 2019",
-        "_notes": "Hey",
-        "_profilePic": "../assets/profile-images/Ellipse -3.png"
-      },
-      {
-        "id": 3,
-        "_name": "Lisa",
-        "_gender": "Female",
-        "_department": [
-          "Finance",
-          "Sales"
-        ],
-        "_salary": "8000",
-        "_startDate": "29 Oct 2019",
-        "_notes": "Hi",
-        "_profilePic": "../assets/profile-images/Ellipse 1.png"
-      },
-      {
-        "_name": "Harry",
-        "_gender": "Male",
-        "_department": [
-          "HR",
-          "Sales",
-          "Engineer"
-        ],
-        "_salary": "386400",
-        "_startDate": "2019-10-24T18:30:00.000Z",
-        "_notes": "Heyy",
-        "_profilePic": "../assets/profile-images/Ellipse -3.png",
-        "id": 4
-      }
-    ]
-  }
+  "employees": [
+    {
+      "name": "Sonali",
+      "departmentValue": [
+        "Engineer"
+      ],
+      "gender": "female",
+      "salary": "99999",
+      "startDate": "5 3 2020",
+      "day": "5",
+      "month": "3",
+      "year": "2020",
+      "notes": "hello",
+      "profileUrl": "../../assets/profile-images/Ellipse -7.png",
+      "id": 1
+    }
+  ]
+}
